@@ -1,0 +1,718 @@
+<!doctype html>
+<html lang="pt-BR" data-lang="pt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cristiano Diniz · Data Analytics</title>
+<meta name="description" content="Portfólio de Cristiano Diniz: Advanced Analytics, Customer Experience & Voz do Cliente, Product Analytics e experimentação. Python, SQL, estatística, LLMs e aplicações co-construídas com IA.">
+<link rel="canonical" href="https://cristianoaad.github.io/">
+<meta name="theme-color" content="#f6f4ee" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0e1011" media="(prefers-color-scheme: dark)">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://cristianoaad.github.io/">
+<meta property="og:title" content="Cristiano Diniz · Data Analytics">
+<meta property="og:description" content="Advanced Analytics · Customer Experience & Voice of Customer · Product Analytics. Casos, aplicações co-construídas com IA e pesquisa em NLP.">
+<meta property="og:image" content="https://cristianoaad.github.io/assets/img/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:locale:alternate" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="alternate icon" href="favicon.ico" sizes="any">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+
+<script>
+  /* Aplica idioma e tema antes da pintura para evitar "piscar". */
+  (function () {
+    var d = document.documentElement, lang = "pt", theme = null;
+    try {
+      var q = new URLSearchParams(location.search).get("lang");
+      var saved = localStorage.getItem("cd-lang");
+      if (q === "en" || q === "pt") lang = q;
+      else if (saved === "en" || saved === "pt") lang = saved;
+      else if (navigator.language && !/^pt/i.test(navigator.language)) lang = "en";
+      theme = localStorage.getItem("cd-theme");
+    } catch (e) {}
+    d.setAttribute("data-lang", lang);
+    d.setAttribute("lang", lang === "en" ? "en" : "pt-BR");
+    if (theme === "light" || theme === "dark") d.setAttribute("data-theme", theme);
+  })();
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Cristiano Araújo Abreu Diniz",
+  "jobTitle": "Analista de Dados Pleno · Data Analyst",
+  "worksFor": { "@type": "Organization", "name": "Stone" },
+  "url": "https://cristianoaad.github.io/",
+  "sameAs": ["https://www.linkedin.com/in/cristianoaadiniz", "https://github.com/cristianoaad"],
+  "alumniOf": [
+    { "@type": "CollegeOrUniversity", "name": "USP/ESALQ" },
+    { "@type": "CollegeOrUniversity", "name": "Universidade Federal de Minas Gerais" }
+  ],
+  "knowsAbout": ["Advanced Analytics", "Voice of Customer", "Customer Experience", "Product Analytics", "A/B Testing", "Causal Inference", "NLP", "LLM-as-judge", "Python", "SQL"]
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#conteudo"><span data-l="pt">Pular para o conteúdo</span><span data-l="en">Skip to content</span></a>
+
+<!-- ================= TOPO ================= -->
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="#topo" aria-label="Cristiano Diniz">
+      <span class="mono-badge" aria-hidden="true">CD</span>
+      <span class="brand-name">Cristiano Diniz</span>
+    </a>
+    <nav class="nav" aria-label="Seções">
+      <a href="#atuacao"><span data-l="pt">Atuação</span><span data-l="en">Focus</span></a>
+      <a href="#casos"><span data-l="pt">Casos</span><span data-l="en">Work</span></a>
+      <a href="#ia"><span data-l="pt">Apps com IA</span><span data-l="en">AI-built apps</span></a>
+      <a href="#pesquisa"><span data-l="pt">Pesquisa</span><span data-l="en">Research</span></a>
+      <a href="#trajetoria"><span data-l="pt">Trajetória</span><span data-l="en">Experience</span></a>
+      <a href="#contato"><span data-l="pt">Contato</span><span data-l="en">Contact</span></a>
+    </nav>
+    <div class="controls">
+      <div class="seg" role="group" aria-label="Idioma / Language">
+        <button type="button" class="seg-btn" data-set-lang="pt" aria-pressed="true">PT</button>
+        <button type="button" class="seg-btn" data-set-lang="en" aria-pressed="false">EN</button>
+      </div>
+      <button type="button" class="icon-btn" id="themeToggle" aria-label="Alternar tema claro/escuro">
+        <svg class="i-sun" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        <svg class="i-moon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M20 14.6A8.2 8.2 0 0 1 9.4 4a8.2 8.2 0 1 0 10.6 10.6Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="conteudo">
+
+<!-- ================= HERO ================= -->
+<section class="hero wrap" id="topo">
+  <div class="hero-text">
+    <p class="eyebrow"><span class="dot" aria-hidden="true"></span>Data Analytics · Stone · São Paulo</p>
+    <h1>Cristiano Diniz</h1>
+    <p class="role">
+      <span data-l="pt">Advanced Analytics · Customer Experience &amp; Voz do Cliente · Product Analytics</span>
+      <span data-l="en">Advanced Analytics · Customer Experience &amp; Voice of Customer · Product Analytics</span>
+    </p>
+    <p class="lead" data-l="pt">Transformo <strong>voz do cliente</strong> e <strong>dados de produto</strong> em decisões, e construo as ferramentas que fazem isso escalar. Python e SQL no dia a dia, estatística e inferência causal como método, e IA como par de engenharia para entregar aplicações completas.</p>
+    <p class="lead" data-l="en">I turn <strong>customer voice</strong> and <strong>product data</strong> into decisions, and build the tools that make it scale. Python and SQL every day, statistics and causal inference as method, and AI as an engineering partner to ship complete applications.</p>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="#casos"><span data-l="pt">Ver casos</span><span data-l="en">See my work</span></a>
+      <a class="btn" href="https://www.linkedin.com/in/cristianoaadiniz" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn" href="https://github.com/cristianoaad" target="_blank" rel="noopener">GitHub</a>
+      <a class="btn" href="mailto:dinizcristiano04@gmail.com">E-mail</a>
+    </div>
+  </div>
+
+  <figure class="hero-viz card" aria-labelledby="heroVizCap">
+    <div class="viz-head">
+      <span class="kicker"><span data-l="pt">Sinal, não ruído</span><span data-l="en">Signal, not noise</span></span>
+      <span class="viz-tag mono">kpi_a · 42d</span>
+    </div>
+    <svg viewBox="0 0 600 240" class="hero-svg" role="img" aria-labelledby="heroVizCap">
+      <rect x="0" y="42" width="600" height="120" class="band"/>
+      <line x1="0" x2="600" y1="102" y2="102" class="median"/>
+      <text x="4" y="34" class="band-lbl"><tspan data-l="pt">mediana + 3·MAD</tspan><tspan data-l="en">median + 3·MAD</tspan></text>
+      <text x="4" y="184" class="band-lbl"><tspan data-l="pt">mediana − 3·MAD</tspan><tspan data-l="en">median − 3·MAD</tspan></text>
+      <path class="series" d="M4.0,101.5 L18.4,83.4 L32.9,85.3 L47.3,101.8 L61.8,114.4 L76.2,130.1 L90.6,116.1 L105.1,88.5 L119.5,91.1 L134.0,88.6 L148.4,88.3 L162.8,106.5 L177.3,119.4 L191.7,125.8 L206.1,101.8 L220.6,79.6 L235.0,95.6 L249.5,97.5 L263.9,128.4 L278.3,133.0 L292.8,134.6 L307.2,103.8 L321.7,98.7 L336.1,80.0 L350.5,91.6 L365.0,111.8 L379.4,144.9 L393.9,122.0 L408.3,102.0 L422.7,85.2 L437.2,97.5 L451.6,97.7 L466.0,119.5 L480.5,128.3 L494.9,106.4 L509.4,109.4 L523.8,170.5 L538.2,74.0 L552.7,98.8 L567.1,111.0 L581.6,119.4 L596.0,116.1"/>
+      <circle cx="523.8" cy="170.5" r="9" class="alert-ring"/>
+      <circle cx="523.8" cy="170.5" r="5" class="alert-dot"/>
+      <g class="alert-callout">
+        <line x1="523.8" y1="182" x2="523.8" y2="206" />
+        <text x="516" y="226" text-anchor="end" class="alert-txt"><tspan data-l="pt">z robusto = −3,4 → alerta</tspan><tspan data-l="en">robust z = −3.4 → alert</tspan></text>
+      </g>
+    </svg>
+    <figcaption id="heroVizCap" class="viz-cap">
+      <span data-l="pt">Série ilustrativa. Um z-score robusto (mediana e MAD) separa a variação natural de um desvio real; tendência, quebra de nível e uma máquina de estado decidem se o alerta vai para o Slack.</span>
+      <span data-l="en">Illustrative series. A robust z-score (median and MAD) separates natural variation from a real deviation; trend tests, level-shift detection and a state machine decide whether the alert goes to Slack.</span>
+    </figcaption>
+  </figure>
+
+  <ul class="stats" aria-label="Números">
+    <li class="stat"><span class="num"><span data-l="pt">181 mil+</span><span data-l="en">181k+</span></span><span class="lbl"><span data-l="pt">sessões de chatbot modeladas com cadeias de Markov e NPMI</span><span data-l="en">chatbot sessions modeled with Markov chains and NPMI</span></span></li>
+    <li class="stat"><span class="num">133</span><span class="lbl"><span data-l="pt">componentes analíticos reutilizáveis na minha biblioteca técnica</span><span data-l="en">reusable analytics components in my technical library</span></span></li>
+    <li class="stat"><span class="num"><span data-l="pt">2.500+</span><span data-l="en">2,500+</span></span><span class="lbl"><span data-l="pt">testes automatizados nos apps que co-construí com IA</span><span data-l="en">automated tests across the apps I co-built with AI</span></span></li>
+    <li class="stat"><span class="num"><span data-l="pt">6 anos</span><span data-l="en">6 years</span></span><span class="lbl"><span data-l="pt">em dados, produto e growth, de startups a consultoria</span><span data-l="en">in data, product and growth, from startups to consulting</span></span></li>
+  </ul>
+</section>
+
+<!-- ================= 01 ATUAÇÃO ================= -->
+<section class="section wrap" id="atuacao" aria-labelledby="h-atuacao">
+  <header class="sec-head">
+    <span class="sec-num mono">01</span>
+    <h2 id="h-atuacao"><span data-l="pt">Onde eu gero valor</span><span data-l="en">Where I add value</span></h2>
+    <p class="sec-sub" data-l="pt">Quatro frentes que se combinam em quase todo projeto: entender o cliente, entender o produto, provar causa e efeito e vigiar o que importa.</p>
+    <p class="sec-sub" data-l="en">Four fronts that combine in almost every project: understand the customer, understand the product, prove cause and effect, and watch what matters.</p>
+  </header>
+
+  <div class="pillars">
+    <article class="pillar card">
+      <div class="pillar-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 5.5h16v10H9l-5 4v-14Z"/><path d="M8 9.5h8M8 12.5h5"/></svg></div>
+      <h3><span data-l="pt">Voz do Cliente &amp; CX</span><span data-l="en">Voice of Customer &amp; CX</span></h3>
+      <p data-l="pt">Comentários de CSAT e NPS viram temas e prioridades. Uso LLM-as-judge em lote (map→reduce), taxonomias de assunto e separo problema de produto de problema de atendimento.</p>
+      <p data-l="en">CSAT and NPS comments become themes and priorities. I run batch LLM-as-judge (map→reduce), build topic taxonomies and separate product issues from service issues.</p>
+      <ul class="tags"><li>LLM-as-judge</li><li>NLP</li><li>CSAT · NPS</li><li><span data-l="pt">Taxonomia</span><span data-l="en">Taxonomy</span></li></ul>
+    </article>
+    <article class="pillar card">
+      <div class="pillar-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="6" cy="7" r="2.3"/><circle cx="18" cy="7" r="2.3"/><circle cx="12" cy="17" r="2.3"/><path d="M8.2 7.8l2.6 7.2M15.8 7.8l-2.6 7.2M8.3 7h7.4"/></svg></div>
+      <h3><span data-l="pt">Product Analytics &amp; Jornada</span><span data-l="en">Product Analytics &amp; Journeys</span></h3>
+      <p data-l="pt">Cadeias de Markov para transições, NPMI para coocorrência de intenções e scores de priorização por impacto nos KPIs. Dados de jornada que viram hipóteses para o discovery.</p>
+      <p data-l="en">Markov chains for transitions, NPMI for intent co-occurrence and prioritization scores by KPI impact. Journey data that turns into hypotheses for discovery.</p>
+      <ul class="tags"><li>Markov</li><li>NPMI</li><li><span data-l="pt">Priorização</span><span data-l="en">Prioritization</span></li><li>Discovery</li></ul>
+    </article>
+    <article class="pillar card">
+      <div class="pillar-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 19V5M4 19h16"/><path d="M7 15l4-4 3 2 5-6"/><path d="M7 17.5l4-2.5 3 1 5-3" stroke-dasharray="2 2"/></svg></div>
+      <h3><span data-l="pt">Experimentação &amp; Causalidade</span><span data-l="en">Experimentation &amp; Causality</span></h3>
+      <p data-l="pt">Testes A/B com randomização estratificada, checagem de SRM, poder e MDE com ajuste por cluster (ICC) e Diferença-em-Diferenças para isolar o efeito real de uma mudança.</p>
+      <p data-l="en">A/B tests with stratified randomization, SRM checks, power and MDE with cluster adjustment (ICC), and Difference-in-Differences to isolate the real effect of a change.</p>
+      <ul class="tags"><li>A/B</li><li>DiD</li><li><span data-l="pt">Poder · MDE</span><span data-l="en">Power · MDE</span></li><li>SRM</li></ul>
+    </article>
+    <article class="pillar card">
+      <div class="pillar-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 13h3l2-6 3 11 3-8 2 3h5"/></svg></div>
+      <h3><span data-l="pt">Estatística &amp; Monitoramento</span><span data-l="en">Statistics &amp; Monitoring</span></h3>
+      <p data-l="pt">Detecção de anomalias com z-score robusto, Mann-Kendall, Theil-Sen e change-points, controle de falsas descobertas e decomposição de variações com Shapley e LMDI.</p>
+      <p data-l="en">Anomaly detection with robust z-scores, Mann-Kendall, Theil-Sen and change-points, false discovery control, and variance decomposition with Shapley and LMDI.</p>
+      <ul class="tags"><li><span data-l="pt">Z robusto</span><span data-l="en">Robust z</span></li><li>Mann-Kendall</li><li>Shapley · LMDI</li><li>Backtest</li></ul>
+    </article>
+  </div>
+</section>
+
+<!-- ================= 02 CASOS ================= -->
+<section class="section wrap" id="casos" aria-labelledby="h-casos">
+  <header class="sec-head">
+    <span class="sec-num mono">02</span>
+    <h2 id="h-casos"><span data-l="pt">Casos profissionais</span><span data-l="en">Professional work</span></h2>
+    <p class="sec-sub" data-l="pt">Sistemas que construí de ponta a ponta como Analista de Dados Pleno em Chatbot Analytics na Stone, rodando em Databricks com dados do BigQuery e do lake.</p>
+    <p class="sec-sub" data-l="en">Systems I built end to end as a Data Analyst in Chatbot Analytics at Stone, running on Databricks with data from BigQuery and the lakehouse.</p>
+    <p class="note mono">
+      <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><rect x="4" y="10.5" width="16" height="10" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M8 10.5V7.5a4 4 0 0 1 8 0v3" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>
+      <span data-l="pt">Descrições anonimizadas: técnica e arquitetura fiéis, sem dados internos.</span>
+      <span data-l="en">Anonymized descriptions: faithful technique and architecture, no internal data.</span>
+    </p>
+  </header>
+
+  <div class="cases-featured">
+    <!-- Caso 1 -->
+    <article class="case card case-lg">
+      <p class="kicker">Product Analytics · <span data-l="pt">Voz do Cliente</span><span data-l="en">Voice of Customer</span></p>
+      <h3><span data-l="pt">Painel de priorização de retenção e CSAT</span><span data-l="en">Retention &amp; CSAT prioritization panel</span></h3>
+      <p class="summary" data-l="pt">Um único lugar para decidir o que atacar primeiro no chatbot. Unifiquei dois pipelines (retenção e CSAT) numa matriz de priorização por intenção, com leitura assistida por IA e um simulador de impacto.</p>
+      <p class="summary" data-l="en">One place to decide what to fix first in the chatbot. I merged two pipelines (retention and CSAT) into an intent-level prioritization matrix, with AI-assisted readouts and an impact simulator.</p>
+      <ul class="points">
+        <li data-l="pt"><strong>Score por intenção</strong> que combina impacto estimado nos KPIs, alavancas operacionais e o coeficiente de variação da participação semanal.</li>
+        <li data-l="en"><strong>Intent score</strong> combining estimated KPI impact, operational levers and the coefficient of variation of weekly share.</li>
+        <li data-l="pt"><strong>181 mil+ sessões em oito semanas</strong> modeladas com cadeias de Markov (transições) e NPMI (coocorrência), gerando hipóteses sobre transbordo para o atendimento humano.</li>
+        <li data-l="en"><strong>181k+ sessions over eight weeks</strong> modeled with Markov chains (transitions) and NPMI (co-occurrence), producing hypotheses about escalation to human agents.</li>
+        <li data-l="pt"><strong>Temas de CSAT com LLM-as-judge</strong> em map→reduce e classificação de problema de produto × atendimento por intenção.</li>
+        <li data-l="en"><strong>CSAT themes via LLM-as-judge</strong> in map→reduce, classifying product vs. service problems per intent.</li>
+        <li data-l="pt"><strong>Decomposição de Shapley</strong> para separar efeitos de cobertura, desempenho e multiplicidade sobre a retenção.</li>
+        <li data-l="en"><strong>Shapley decomposition</strong> separating coverage, performance and multiplicity effects on retention.</li>
+      </ul>
+      <ul class="tags"><li>Markov</li><li>NPMI</li><li>LLM-as-judge</li><li>Shapley · LMDI</li><li><span data-l="pt">Impacto contrafactual</span><span data-l="en">Counterfactual impact</span></li><li>Web App</li></ul>
+      <details>
+        <summary><span data-l="pt">Como funciona</span><span data-l="en">How it works</span></summary>
+        <div class="detail">
+          <p data-l="pt">Um orquestrador único instala dependências, define um contrato por ambiente e encadeia os dois sub-pipelines em notebooks no Databricks, cada um extraindo e serializando seus artefatos. A camada de priorização é pré-computada (inclusive a leitura por IA, com <em>store</em> incremental e paralelismo) e tudo é publicado como um Web App (SPA em Google Apps Script, deploy via <code>clasp</code>). Se o LLM falha, entra um <em>fallback</em> determinístico.</p>
+          <p data-l="en">A single orchestrator installs dependencies, sets a per-environment contract and chains both sub-pipelines as Databricks notebooks, each extracting and serializing its artifacts. The prioritization layer is precomputed (including the AI readout, with an incremental store and parallelism) and everything ships as a Web App (a Google Apps Script SPA deployed with <code>clasp</code>). If the LLM fails, a deterministic fallback takes over.</p>
+          <p class="stack"><span class="mono">Stack</span> Python · SQL (BigQuery + lake) · Databricks · LLM via Model Serving · Apps Script · JavaScript</p>
+        </div>
+      </details>
+    </article>
+
+    <!-- Caso 2 -->
+    <article class="case card case-lg">
+      <p class="kicker"><span data-l="pt">Experimentação · Inferência causal</span><span data-l="en">Experimentation · Causal inference</span></p>
+      <h3><span data-l="pt">Teste A/B: retirada do copiloto de atendimento</span><span data-l="en">A/B test: removing the agent copilot</span></h3>
+      <p class="summary" data-l="pt">Medir o efeito real de retirar um copiloto de IA usado pelos agentes, sem confundir o resultado com sazonalidade ou com o perfil de cada equipe.</p>
+      <p class="summary" data-l="en">Measure the real effect of removing an AI copilot used by agents, without confusing the result with seasonality or team profile.</p>
+      <ul class="points">
+        <li data-l="pt"><strong>Randomização estratificada</strong> com balanceamento por tempo de casa, uso da ferramenta e tempo médio de atendimento (SMD e busca da seed mais equilibrada).</li>
+        <li data-l="en"><strong>Stratified randomization</strong> balanced on tenure, tool usage and average handling time (SMD plus a search for the best-balanced seed).</li>
+        <li data-l="pt"><strong>Amostra dimensionada com ajuste por cluster</strong>: atendimentos agrupados por agente (ICC), com poder e MDE explícitos.</li>
+        <li data-l="en"><strong>Sample size with cluster adjustment</strong>: tickets grouped by agent (ICC), with explicit power and MDE.</li>
+        <li data-l="pt"><strong>SRM (qui-quadrado)</strong> e estabilidade da métrica checados antes de qualquer leitura.</li>
+        <li data-l="en"><strong>SRM (chi-square)</strong> and metric stability checked before any readout.</li>
+        <li data-l="pt"><strong>Diferença-em-Diferenças com regressão</strong> como estimador do efeito.</li>
+        <li data-l="en"><strong>Difference-in-Differences with regression</strong> as the effect estimator.</li>
+      </ul>
+      <p class="outcome"><span class="mono" data-l="pt">Resultado</span><span class="mono" data-l="en">Outcome</span> <span data-l="pt">A estimativa embasou a decisão de retirada faseada.</span><span data-l="en">The estimate grounded the decision for a phased removal.</span></p>
+      <ul class="tags"><li><span data-l="pt">Estratificação</span><span data-l="en">Stratification</span></li><li>ICC</li><li>SRM</li><li><span data-l="pt">Poder · MDE</span><span data-l="en">Power · MDE</span></li><li>DiD</li></ul>
+      <details>
+        <summary><span data-l="pt">Como funciona</span><span data-l="en">How it works</span></summary>
+        <div class="detail">
+          <p data-l="pt">Desenho → randomização estratificada controle/teste → checagens de balanceamento e SRM → mensuração diária e acumulada → estimador DiD → monitoramento de estabilidade e decisão de fase. O kit também cobre atribuição de coortes para rollout faseado e gráficos de acompanhamento.</p>
+          <p data-l="en">Design → stratified control/test randomization → balance and SRM checks → daily and cumulative measurement → DiD estimator → stability monitoring and phase decision. The toolkit also covers cohort assignment for phased rollouts and monitoring charts.</p>
+          <p class="stack"><span class="mono">Stack</span> Python · pandas · statsmodels · SciPy · Jupyter</p>
+        </div>
+      </details>
+    </article>
+  </div>
+
+  <div class="cases-grid">
+    <article class="case card">
+      <p class="kicker"><span data-l="pt">Estatística · Monitoramento</span><span data-l="en">Statistics · Monitoring</span></p>
+      <h3><span data-l="pt">Plataforma de alertas e anomalias</span><span data-l="en">Alerting &amp; anomaly platform</span></h3>
+      <p class="summary" data-l="pt">Vigia KPIs operacionais e só alerta quando há sinal: vários detectores, tendência com controle de falsas descobertas e uma máquina de estado que evita alertas repetidos no Slack.</p>
+      <p class="summary" data-l="en">Watches operational KPIs and only alerts on real signal: several detectors, trend tests with false discovery control and a state machine that prevents repeated Slack alerts.</p>
+      <ul class="tags"><li><span data-l="pt">Z robusto</span><span data-l="en">Robust z</span></li><li>PELT</li><li>Mann-Kendall + BH</li><li>Backtest</li></ul>
+      <details>
+        <summary><span data-l="pt">Detalhes</span><span data-l="en">Details</span></summary>
+        <div class="detail">
+          <p data-l="pt">Z-score robusto (MAD) com limiares por tipo de dia, filtro de Hampel, quebra de nível (PELT penalizado), Mann-Kendall com Theil-Sen e Benjamini-Hochberg. Limiares calibrados por <strong>backtest deslizante com a máquina de estado real</strong>; modos prod/test/preview e reprocessamento por data de referência.</p>
+          <p data-l="en">Robust z-score (MAD) with day-type thresholds, Hampel filter, level-shift detection (penalized PELT), Mann-Kendall with Theil-Sen and Benjamini-Hochberg. Thresholds calibrated with a <strong>sliding backtest using the real state machine</strong>; prod/test/preview modes and reprocessing by reference date.</p>
+          <p class="stack"><span class="mono">Stack</span> Python · SciPy · statsmodels · ruptures · pymannkendall · Slack</p>
+        </div>
+      </details>
+    </article>
+
+    <article class="case card">
+      <p class="kicker"><span data-l="pt">Voz do Cliente · NLP</span><span data-l="en">Voice of Customer · NLP</span></p>
+      <h3><span data-l="pt">NPS e comentários de clientes</span><span data-l="en">NPS &amp; customer comments</span></h3>
+      <p class="summary" data-l="pt">Notas e comentários abertos viram indicadores e temas acionáveis, com séries em janela móvel e classificação de comentários por LLM.</p>
+      <p class="summary" data-l="en">Scores and open comments become indicators and actionable themes, with rolling-window series and LLM comment classification.</p>
+      <ul class="tags"><li><span data-l="pt">Janela móvel</span><span data-l="en">Rolling window</span></li><li>KPI · <span data-l="pt">meta</span><span data-l="en">target</span></li><li>LLM</li><li>Delta MERGE</li></ul>
+      <details>
+        <summary><span data-l="pt">Detalhes</span><span data-l="en">Details</span></summary>
+        <div class="detail">
+          <p data-l="pt">Extração → janela móvel (semana/mês, com override) → fatos brutos para KPI, meta e realizado → classificação e agregação de comentários → formatação pt-BR e upsert em Delta.</p>
+          <p data-l="en">Extraction → rolling window (week/month, with override) → raw facts for KPI, target and actuals → comment classification and aggregation → pt-BR formatting and Delta upsert.</p>
+          <p class="stack"><span class="mono">Stack</span> Python · SQL · Delta Lake · LLM · Databricks</p>
+        </div>
+      </details>
+    </article>
+
+    <article class="case card">
+      <p class="kicker">CX · <span data-l="pt">LLM em lote</span><span data-l="en">Batch LLM</span></p>
+      <h3><span data-l="pt">Classificador de demanda pré-atendimento</span><span data-l="en">Pre-service demand classifier</span></h3>
+      <p class="summary" data-l="pt">Entende a demanda que chega antes do assistente virtual para separar problema de produto de problema de atendimento e apoiar a análise de causa-raiz.</p>
+      <p class="summary" data-l="en">Understands demand arriving before the virtual assistant, separating product problems from service problems and supporting root-cause analysis.</p>
+      <ul class="tags"><li>Cochran</li><li><span data-l="pt">Normalização</span><span data-l="en">Normalization</span></li><li>Retry · backoff</li><li>Tokens</li></ul>
+      <details>
+        <summary><span data-l="pt">Detalhes</span><span data-l="en">Details</span></summary>
+        <div class="detail">
+          <p data-l="pt">Amostra representativa (Cochran com correção de população finita) → normalização de texto → classificação por LLM em lote com <code>ThreadPoolExecutor</code>, retry/backoff e métricas de token → agregação por classe com volume e %.</p>
+          <p data-l="en">Representative sample (Cochran with finite population correction) → text normalization → batch LLM classification with <code>ThreadPoolExecutor</code>, retry/backoff and token metrics → per-class aggregation with volume and share.</p>
+        </div>
+      </details>
+    </article>
+
+    <article class="case card">
+      <p class="kicker"><span data-l="pt">Engenharia analítica</span><span data-l="en">Analytics engineering</span></p>
+      <h3><span data-l="pt">Relatórios executivos automatizados</span><span data-l="en">Automated executive reports</span></h3>
+      <p class="summary" data-l="pt">Relatórios recorrentes de ponta a ponta: variações de KPIs, decomposições e recomendações publicadas no Confluence para Produto, Operações e liderança.</p>
+      <p class="summary" data-l="en">Recurring reports end to end: KPI changes, decompositions and recommendations published to Confluence for Product, Operations and leadership.</p>
+      <ul class="tags"><li><span data-l="pt">Orquestração</span><span data-l="en">Orchestration</span></li><li>Fallback REST</li><li>Confluence</li><li>HTML</li></ul>
+      <details>
+        <summary><span data-l="pt">Detalhes</span><span data-l="en">Details</span></summary>
+        <div class="detail">
+          <p data-l="pt">Orquestração por segmento com isolamento de falhas, cliente de warehouse com fallback REST (proxy corporativo), exportação padronizada, upload com fallback em cascata e injeção de Parquet em CTE SQL com cache.</p>
+          <p data-l="en">Per-segment orchestration with failure isolation, a warehouse client with REST fallback (corporate proxy), standardized exports, cascading-fallback uploads and Parquet inlined into SQL CTEs with caching.</p>
+        </div>
+      </details>
+    </article>
+
+    <article class="case card case-library">
+      <p class="kicker"><span data-l="pt">Reuso · Documentação</span><span data-l="en">Reuse · Documentation</span></p>
+      <h3><span data-l="pt">Biblioteca técnica: 133 componentes</span><span data-l="en">Technical library: 133 components</span></h3>
+      <p class="summary" data-l="pt">Padronizei o que se repete entre projetos. Cada componente tem descrição, assinatura, dependências e código pronto, e as regras de cálculo estão em Markdown para orientar analistas e agentes de IA.</p>
+      <p class="summary" data-l="en">I standardized what repeats across projects. Each component has a description, signature, dependencies and ready-to-use code, and calculation rules live in Markdown to guide analysts and AI agents.</p>
+      <ul class="families">
+        <li><span data-l="pt">Alertas &amp; limiares</span><span data-l="en">Alerts &amp; thresholds</span></li>
+        <li><span data-l="pt">Tendência &amp; estatística</span><span data-l="en">Trend &amp; statistics</span></li>
+        <li><span data-l="pt">Decomposição &amp; atribuição</span><span data-l="en">Decomposition &amp; attribution</span></li>
+        <li><span data-l="pt">LLM-as-judge &amp; classificação</span><span data-l="en">LLM-as-judge &amp; classification</span></li>
+        <li><span data-l="pt">Sequências &amp; associação</span><span data-l="en">Sequences &amp; association</span></li>
+        <li><span data-l="pt">Impacto contrafactual &amp; A/B</span><span data-l="en">Counterfactual impact &amp; A/B</span></li>
+        <li><span data-l="pt">Dados, pipelines &amp; integração</span><span data-l="en">Data, pipelines &amp; integration</span></li>
+        <li><span data-l="pt">Utilitários &amp; relatórios</span><span data-l="en">Utilities &amp; reports</span></li>
+      </ul>
+    </article>
+  </div>
+
+  <!-- Desafios técnicos -->
+  <div class="subsection">
+    <h3 class="sub-title"><span data-l="pt">Desafios técnicos</span><span data-l="en">Technical challenges</span></h3>
+    <p class="sub-sub" data-l="pt">Cases resolvidos em processos seletivos, descritos sem identificar as empresas.</p>
+    <p class="sub-sub" data-l="en">Case studies solved in hiring processes, described without naming the companies.</p>
+    <div class="mini-grid">
+      <article class="mini card">
+        <h4><span data-l="pt">Detecção de fraude orientada a custo</span><span data-l="en">Cost-aware fraud detection</span></h4>
+        <p data-l="pt">O limiar de decisão maximiza o valor líquido: fraude evitada menos o custo de 10% por falso alarme. Comparei regressão logística stepwise com segmentos de risco e XGBoost tunado com SHAP.</p>
+        <p data-l="en">The decision threshold maximizes net value: fraud prevented minus a 10% cost per false alarm. I compared stepwise logistic regression with risk segments against a tuned XGBoost explained with SHAP.</p>
+        <ul class="tags"><li>XGBoost</li><li>SHAP</li><li><span data-l="pt">Logística</span><span data-l="en">Logistic</span></li></ul>
+      </article>
+      <article class="mini card">
+        <h4><span data-l="pt">Analytics de chatbot</span><span data-l="en">Chatbot analytics</span></h4>
+        <p data-l="pt">Sessões, callbacks, tempos de resposta, padrões de fluxo de mensagens e satisfação a partir de eventos e mensagens, com painel executivo em Power BI.</p>
+        <p data-l="en">Sessions, callbacks, response times, message-flow patterns and satisfaction from event and message logs, with an executive dashboard in Power BI.</p>
+        <ul class="tags"><li><span data-l="pt">Sessionização</span><span data-l="en">Sessionization</span></li><li>CSAT</li><li>Power BI</li></ul>
+      </article>
+      <article class="mini card">
+        <h4><span data-l="pt">EDA para modelagem multinível</span><span data-l="en">EDA for multilevel modeling</span></h4>
+        <p data-l="pt">Processo industrial analisado por etapa: correlações intra e inter-etapas, LOWESS, Ramsey RESET e VIF por bloco para definir uma arquitetura multinível encadeada.</p>
+        <p data-l="en">An industrial process analyzed stage by stage: within- and between-stage correlations, LOWESS, Ramsey RESET and VIF per block to define a chained multilevel architecture.</p>
+        <ul class="tags"><li><span data-l="pt">Multinível</span><span data-l="en">Multilevel</span></li><li>RESET · VIF</li><li>Plotly</li></ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 03 IA ================= -->
+<section class="section wrap" id="ia" aria-labelledby="h-ia">
+  <header class="sec-head">
+    <span class="sec-num mono">03</span>
+    <h2 id="h-ia"><span data-l="pt">Co-construído com IA</span><span data-l="en">Co-built with AI</span></h2>
+    <p class="sec-sub" data-l="pt">Não sou desenvolvedor de formação. Uso IA (Claude, Codex, Cursor) como par de engenharia: eu trago o problema, as regras de negócio e os critérios de aceite, reviso cada decisão e valido o resultado, enquanto a IA acelera a implementação. Foi assim que saí dos notebooks para aplicações completas, testadas e em uso.</p>
+    <p class="sec-sub" data-l="en">I'm not a software engineer by training. I use AI (Claude, Codex, Cursor) as an engineering partner: I bring the problem, the business rules and the acceptance criteria, review every decision and validate the outcome, while AI speeds up the implementation. That's how I went from notebooks to complete, tested applications that people actually use.</p>
+  </header>
+
+  <ol class="method">
+    <li><span class="m-num mono">01</span><strong><span data-l="pt">Especificar</span><span data-l="en">Specify</span></strong><span data-l="pt">Problema, regras de negócio e critérios de aceite antes do código.</span><span data-l="en">Problem, business rules and acceptance criteria before any code.</span></li>
+    <li><span class="m-num mono">02</span><strong><span data-l="pt">Construir em ciclos</span><span data-l="en">Build in short loops</span></strong><span data-l="pt">Entregas pequenas, uma decisão por vez, sempre revisada.</span><span data-l="en">Small increments, one decision at a time, always reviewed.</span></li>
+    <li><span class="m-num mono">03</span><strong><span data-l="pt">Testar e verificar</span><span data-l="en">Test &amp; verify</span></strong><span data-l="pt">Suítes automatizadas e checagem no navegador a cada entrega.</span><span data-l="en">Automated suites and in-browser checks on every delivery.</span></li>
+    <li><span class="m-num mono">04</span><strong><span data-l="pt">Documentar</span><span data-l="en">Document</span></strong><span data-l="pt">Decisões, arquitetura e log de desenvolvimento em Markdown.</span><span data-l="en">Decisions, architecture and a development log in Markdown.</span></li>
+  </ol>
+
+  <!-- App destaque: Seu Guará -->
+  <article class="app app-feature card">
+    <div class="app-visual v-guara">
+      <img src="assets/img/seu-guara.webp" width="480" height="480" alt="Mascote do Seu Guará: um lobo-guará de óculos e colete" loading="lazy">
+    </div>
+    <div class="app-body">
+      <div class="app-meta">
+        <span class="status status-live"><span data-l="pt">Em produção</span><span data-l="en">In production</span></span>
+        <span class="mono metric"><span data-l="pt">108 testes</span><span data-l="en">108 tests</span></span>
+      </div>
+      <h3>Seu Guará</h3>
+      <p class="app-tag"><span data-l="pt">App de finanças pessoais, usado pela minha família</span><span data-l="en">Personal finance app, used by my family</span></p>
+      <p data-l="pt">Do extrato bancário ao planejamento do mês. Importa CSV e PDF de bancos brasileiros, categoriza gastos aprendendo com o usuário, compara orçado × realizado e gera leituras por IA com teto de custo por usuário.</p>
+      <p data-l="en">From bank statement to monthly plan. It imports CSV and PDF statements from Brazilian banks, categorizes spending by learning from the user, compares budget vs. actuals and generates AI readouts with a per-user cost cap.</p>
+      <ul class="points compact">
+        <li data-l="pt">Categorização em cascata: aprendizado do usuário → LLM → regras, com ciclo de feedback.</li>
+        <li data-l="en">Cascading categorization: user-learned mappings → LLM → rules, with a feedback loop.</li>
+        <li data-l="pt">Multiusuário com login JWT e isolamento total de dados por conta.</li>
+        <li data-l="en">Multi-user with JWT login and full per-account data isolation.</li>
+        <li data-l="pt">Investimentos: renda fixa em base 252, IR regressivo e valores reais pelo IPCA; cotações da B3 e do BCB com cache e fallback.</li>
+        <li data-l="en">Investments: fixed income on a 252-day basis, regressive income tax and inflation-adjusted values; B3 and Central Bank quotes with cache and fallback.</li>
+        <li data-l="pt">No ar com Vercel, Render e TiDB Cloud, com backup diário via GitHub Actions.</li>
+        <li data-l="en">Live on Vercel, Render and TiDB Cloud, with daily backups via GitHub Actions.</li>
+      </ul>
+      <p class="stack"><span class="mono">Stack</span> React · Vite · Tailwind · FastAPI · SQLAlchemy · pandas · MySQL/TiDB · Claude API</p>
+    </div>
+  </article>
+
+  <div class="apps-grid">
+    <!-- Cris Barista -->
+    <article class="app card">
+      <div class="app-visual v-barista">
+        <img src="assets/img/cris-barista.webp" width="360" height="360" alt="Logo do Cris Barista em estilo história em quadrinhos" loading="lazy">
+      </div>
+      <div class="app-body">
+        <div class="app-meta">
+          <span class="status status-live"><span data-l="pt">Em uso</span><span data-l="en">In use</span></span>
+          <span class="mono metric"><span data-l="pt">301 testes</span><span data-l="en">301 tests</span></span>
+        </div>
+        <h3>Cris Barista</h3>
+        <p class="app-tag"><span data-l="pt">App de extrações de café (PWA)</span><span data-l="en">Coffee brewing app (PWA)</span></p>
+        <p data-l="pt">Planejar, cronometrar e avaliar cada café. Começou como Google Apps Script + Sheets e evoluiu para app web com login e API serverless, mantendo a mesma planilha como base de dados.</p>
+        <p data-l="en">Plan, time and rate every brew. It started as Google Apps Script + Sheets and evolved into a web app with login and a serverless API, keeping the same spreadsheet as its database.</p>
+        <ul class="points compact">
+          <li data-l="pt">Receitas para Origami, Clever e Moka, com cronômetro de despejos e avaliação sensorial.</li>
+          <li data-l="en">Recipes for Origami, Clever and Moka, with a pour timer and sensory scoring.</li>
+          <li data-l="pt">Migração sem perda de dados, preservando o schema original da planilha.</li>
+          <li data-l="en">Zero-data-loss migration that preserves the original spreadsheet schema.</li>
+          <li data-l="pt">Sessão restaurada automaticamente no iPhone via Supabase Auth.</li>
+          <li data-l="en">Automatic session restore on iPhone via Supabase Auth.</li>
+        </ul>
+        <p class="stack"><span class="mono">Stack</span> TypeScript · Vercel Functions · Google Sheets API · Supabase Auth · Vitest</p>
+      </div>
+    </article>
+
+    <!-- ColTrace -->
+    <article class="app card">
+      <div class="app-visual v-graph" aria-hidden="true">
+        <svg viewBox="0 0 320 180" class="graph-svg">
+          <g class="edges">
+            <path d="M58 46 C110 46 110 90 150 90"/><path d="M58 90 L150 90"/><path d="M58 134 C110 134 110 90 150 90"/>
+            <path d="M178 90 C220 90 220 52 262 52"/><path d="M178 90 C220 90 220 128 262 128"/>
+          </g>
+          <g class="nodes">
+            <rect x="12" y="34" width="46" height="24" rx="6"/><rect x="12" y="78" width="46" height="24" rx="6"/><rect x="12" y="122" width="46" height="24" rx="6"/>
+            <rect x="150" y="76" width="28" height="28" rx="14" class="hub"/>
+            <rect x="262" y="40" width="46" height="24" rx="6" class="out"/><rect x="262" y="116" width="46" height="24" rx="6" class="out"/>
+          </g>
+          <g class="lbls">
+            <text x="35" y="50">SQL</text><text x="35" y="94">.py</text><text x="35" y="138">%run</text>
+            <text x="285" y="56">trace</text><text x="285" y="132">impact</text>
+          </g>
+        </svg>
+      </div>
+      <div class="app-body">
+        <div class="app-meta">
+          <span class="status status-dev">Dev preview 0.1</span>
+          <span class="mono metric"><span data-l="pt">628 testes</span><span data-l="en">628 tests</span></span>
+        </div>
+        <h3>ColTrace</h3>
+        <p class="app-tag"><span data-l="pt">Pacote Python de linhagem de colunas</span><span data-l="en">Python package for column lineage</span></p>
+        <p data-l="pt">De onde vem cada coluna, e o que quebra se eu mudar ela? O ColTrace responde por análise estática, sem executar o projeto nem ler dados.</p>
+        <p data-l="en">Where does each column come from, and what breaks if I change it? ColTrace answers through static analysis, without running the project or reading any data.</p>
+        <ul class="points compact">
+          <li data-l="pt">Lê .py, notebooks do Databricks (%run, magics) e SQL embutido.</li>
+          <li data-l="en">Reads .py files, Databricks notebooks (%run, magics) and embedded SQL.</li>
+          <li data-l="pt">Consultas de <em>trace</em> (origem) e <em>impact</em> (impacto) num grafo de versões de coluna.</li>
+          <li data-l="en"><em>Trace</em> (upstream) and <em>impact</em> (downstream) queries over a column-version graph.</li>
+          <li data-l="pt">Usado num projeto real para mapear onde a linhagem se rompe.</li>
+          <li data-l="en">Applied to a real project to map where lineage breaks.</li>
+        </ul>
+        <p class="stack"><span class="mono">Stack</span> Python · AST · NetworkX · SQLGlot · Typer · PyVis</p>
+      </div>
+    </article>
+
+    <!-- Publishing Agent -->
+    <article class="app card">
+      <div class="app-visual v-flow" aria-hidden="true">
+        <ol class="flow">
+          <li><span data-l="pt">Plano</span><span data-l="en">Plan</span></li>
+          <li class="gate"><span data-l="pt">Aprovação</span><span data-l="en">Approval</span></li>
+          <li><span data-l="pt">Execução única</span><span data-l="en">Single run</span></li>
+          <li><span data-l="pt">Verificação</span><span data-l="en">Verify</span></li>
+        </ol>
+      </div>
+      <div class="app-body">
+        <div class="app-meta">
+          <span class="status status-dev"><span data-l="pt">Em desenvolvimento</span><span data-l="en">In development</span></span>
+          <span class="mono metric"><span data-l="pt">1.554 testes</span><span data-l="en">1,554 tests</span></span>
+        </div>
+        <h3>Publishing Agent</h3>
+        <p class="app-tag"><span data-l="pt">Agente que publica apps com aprovação humana</span><span data-l="en">An agent that ships apps with human approval</span></p>
+        <p data-l="pt">Leva um projeto da máquina local até produção (autenticação, repositório e deploy) com planos explícitos, aprovação humana em cada passo e verificação por leitura. Nasceu da publicação do Cris Barista.</p>
+        <p data-l="en">Takes a project from a local machine to production (auth, repository and deploy) with explicit plans, human approval at each step and read-back verification. It grew out of shipping Cris Barista.</p>
+        <ul class="points compact">
+          <li data-l="pt">Servidor MCP local + skill: a IA do usuário orquestra, o usuário aprova.</li>
+          <li data-l="en">Local MCP server + skill: the user's AI orchestrates, the user approves.</li>
+          <li data-l="pt">Fluxos para Supabase Auth, GitHub e Vercel: plano → comparação → aprovação → execução → conferência.</li>
+          <li data-l="en">Flows for Supabase Auth, GitHub and Vercel: plan → diff → approval → run → check.</li>
+        </ul>
+        <p class="stack"><span class="mono">Stack</span> Python · MCP · Docker · Supabase CLI · Ruff · mypy</p>
+      </div>
+    </article>
+
+    <!-- Início -->
+    <article class="app card">
+      <div class="app-visual v-tv">
+        <img src="assets/img/inicio-tv.webp" width="960" height="540" alt="Prévia da tela inicial Início numa Android TV, com grade de apps" loading="lazy">
+      </div>
+      <div class="app-body">
+        <div class="app-meta">
+          <span class="status status-live"><span data-l="pt">Em uso</span><span data-l="en">In use</span></span>
+          <span class="mono metric">Android TV</span>
+        </div>
+        <h3>Início</h3>
+        <p class="app-tag"><span data-l="pt">Tela inicial + limpeza de Android TV via ADB</span><span data-l="en">Home screen + Android TV cleanup via ADB</span></p>
+        <p data-l="pt">Scripts que diagnosticam e removem bloatware e rastreadores via ADB (com restauração) e uma tela inicial própria, leve, em Java puro.</p>
+        <p data-l="en">Scripts that diagnose and remove bloatware and trackers via ADB (with restore), plus a lightweight custom home screen in plain Java.</p>
+        <ul class="points compact">
+          <li data-l="pt">Papel de parede enviado pelo celular só na rede local, com código de uso único.</li>
+          <li data-l="en">Wallpaper sent from the phone over the local network only, with a one-time code.</li>
+          <li data-l="pt">QR code gerado sem bibliotecas; única permissão: rede.</li>
+          <li data-l="en">QR code generated without libraries; the only permission is network.</li>
+          <li data-l="pt">Empacotado como skill reutilizável para qualquer Android/Google TV.</li>
+          <li data-l="en">Packaged as a reusable skill for any Android/Google TV.</li>
+        </ul>
+        <p class="stack"><span class="mono">Stack</span> Java (Android) · PowerShell · ADB</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ================= 04 PESQUISA ================= -->
+<section class="section wrap" id="pesquisa" aria-labelledby="h-pesquisa">
+  <header class="sec-head">
+    <span class="sec-num mono">04</span>
+    <h2 id="h-pesquisa"><span data-l="pt">Pesquisa em NLP</span><span data-l="en">NLP research</span></h2>
+    <p class="sec-sub" data-l="pt">TCC do MBA em Data Science &amp; Analytics (USP/ESALQ, 2025): qual modelo usar para classificar comentários do YouTube em português, indo além do positivo/negativo?</p>
+    <p class="sec-sub" data-l="en">MBA thesis in Data Science &amp; Analytics (USP/ESALQ, 2025): which model should classify Portuguese YouTube comments, going beyond positive/negative?</p>
+  </header>
+
+  <ol class="pipeline" aria-label="Pipeline">
+    <li><span class="p-step mono">1</span><strong><span data-l="pt">Coleta</span><span data-l="en">Collect</span></strong><span data-l="pt">API do YouTube, 38 vídeos</span><span data-l="en">YouTube API, 38 videos</span></li>
+    <li><span class="p-step mono">2</span><strong>Weak supervision</strong><span data-l="pt">Snorkel: regras hierárquicas + LabelModel, confiança ≥ 65%</span><span data-l="en">Snorkel: hierarchical rules + LabelModel, confidence ≥ 65%</span></li>
+    <li><span class="p-step mono">3</span><strong><span data-l="pt">Balanceamento</span><span data-l="en">Balance</span></strong><span data-l="pt">Undersampling + data augmentation com FastText</span><span data-l="en">Undersampling + FastText data augmentation</span></li>
+    <li><span class="p-step mono">4</span><strong><span data-l="pt">Modelos</span><span data-l="en">Models</span></strong><span>SVM + TF-IDF · BERTimbau fine-tuned · mDeBERTa zero-shot</span></li>
+    <li><span class="p-step mono">5</span><strong><span data-l="pt">Gabarito de ouro</span><span data-l="en">Gold standard</span></strong><span data-l="pt">GPT-3.5 com few-shot</span><span data-l="en">GPT-3.5 with few-shot prompting</span></li>
+    <li><span class="p-step mono">6</span><strong><span data-l="pt">Avaliação</span><span data-l="en">Evaluate</span></strong><span>F1-macro · MCC</span></li>
+  </ol>
+
+  <div class="research">
+    <figure class="card chart-card" id="tccChart" aria-labelledby="tccTitle">
+      <div class="chart-head">
+        <h3 id="tccTitle" class="chart-title"><span data-l="pt">F1-macro por modelo e tipo de vídeo</span><span data-l="en">Macro-F1 by model and video type</span></h3>
+        <p class="chart-sub"><span data-l="pt">4 classes: Hate, Sugestão, Elogio e Interação. Maior é melhor.</span><span data-l="en">4 classes: Hate, Suggestion, Praise and Interaction. Higher is better.</span></p>
+      </div>
+      <div class="legend" aria-hidden="true">
+        <span class="lg"><i class="sw s1"></i><span data-l="pt">SVM (clássico)</span><span data-l="en">SVM (classic)</span></span>
+        <span class="lg"><i class="sw s2"></i>BERTimbau (fine-tuned)</span>
+        <span class="lg"><i class="sw s3"></i>mDeBERTa (zero-shot)</span>
+      </div>
+      <div class="chart-body">
+        <svg class="chart-svg" viewBox="0 0 560 280" role="img" aria-labelledby="tccTitle" aria-describedby="tccTable"></svg>
+        <div class="tooltip" role="status" aria-live="polite" hidden></div>
+      </div>
+      <details class="table-view">
+        <summary><span data-l="pt">Ver tabela</span><span data-l="en">View table</span></summary>
+        <table id="tccTable">
+          <thead>
+            <tr><th scope="col"><span data-l="pt">Vídeo</span><span data-l="en">Video</span></th><th scope="col">SVM</th><th scope="col">BERTimbau</th><th scope="col">mDeBERTa</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row"><span data-l="pt">Educacional</span><span data-l="en">Educational</span></th><td><strong>0.375</strong></td><td>0.371</td><td>0.265</td></tr>
+            <tr><th scope="row"><span data-l="pt">Podcast</span><span data-l="en">Podcast</span></th><td><strong>0.329</strong></td><td>0.297</td><td>0.234</td></tr>
+            <tr><th scope="row"><span data-l="pt">Pessoal / emocional</span><span data-l="en">Personal / emotional</span></th><td>0.322</td><td><strong>0.367</strong></td><td>0.195</td></tr>
+          </tbody>
+        </table>
+      </details>
+    </figure>
+
+    <div class="findings">
+      <h3 class="sub-title"><span data-l="pt">O que os dados mostraram</span><span data-l="en">What the data showed</span></h3>
+      <ul class="points">
+        <li data-l="pt"><strong>Linguagem formal:</strong> o SVM empata com o Transformer a uma fração do custo.</li>
+        <li data-l="en"><strong>Formal language:</strong> SVM ties with the Transformer at a fraction of the cost.</li>
+        <li data-l="pt"><strong>Conteúdo subjetivo:</strong> o BERTimbau fine-tuned vence e acerta mais Hate e Sugestão.</li>
+        <li data-l="en"><strong>Subjective content:</strong> fine-tuned BERTimbau wins and catches more Hate and Suggestion.</li>
+        <li data-l="pt"><strong>Zero-shot</strong> fica atrás em todos os contextos sem treino no domínio.</li>
+        <li data-l="en"><strong>Zero-shot</strong> trails in every context without in-domain training.</li>
+        <li data-l="pt"><strong>LLM como gabarito:</strong> rótulos de alta confiança por cerca de US$ 6 de API.</li>
+        <li data-l="en"><strong>LLM as gold standard:</strong> high-confidence labels for about US$ 6 in API costs.</li>
+      </ul>
+      <div class="framework">
+        <p class="kicker"><span data-l="pt">Framework de decisão</span><span data-l="en">Decision framework</span></p>
+        <dl>
+          <div><dt><span data-l="pt">Análises pontuais e variadas</span><span data-l="en">One-off, varied analyses</span></dt><dd><span data-l="pt">LLM (agente de IA)</span><span data-l="en">LLM (AI agent)</span></dd></div>
+          <div><dt><span data-l="pt">Recorrente, num domínio</span><span data-l="en">Recurring, single domain</span></dt><dd>Transformer fine-tuned</dd></div>
+          <div><dt><span data-l="pt">Linguagem formal, orçamento curto</span><span data-l="en">Formal language, tight budget</span></dt><dd><span data-l="pt">Clássico (TF-IDF + SVM)</span><span data-l="en">Classic (TF-IDF + SVM)</span></dd></div>
+        </dl>
+      </div>
+      <a class="btn" href="https://github.com/cristianoaad/weak_supervision_labeling" target="_blank" rel="noopener"><span data-l="pt">Repositório de weak supervision</span><span data-l="en">Weak supervision repository</span> ↗</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 05 FERRAMENTAS ================= -->
+<section class="section wrap" id="ferramentas" aria-labelledby="h-ferr">
+  <header class="sec-head">
+    <span class="sec-num mono">05</span>
+    <h2 id="h-ferr"><span data-l="pt">Ferramentas</span><span data-l="en">Toolkit</span></h2>
+  </header>
+  <div class="toolkit">
+    <div class="tk card"><h3><span data-l="pt">Linguagens &amp; dados</span><span data-l="en">Languages &amp; data</span></h3><ul class="tags"><li class="strong">Python</li><li class="strong">SQL</li><li>PySpark</li><li>pandas</li><li>NumPy</li><li>Delta Lake</li></ul></div>
+    <div class="tk card"><h3><span data-l="pt">Plataformas</span><span data-l="en">Platforms</span></h3><ul class="tags"><li class="strong">Databricks</li><li class="strong">BigQuery</li><li>Snowflake schema</li><li>Git · GitHub</li><li>Docker</li><li>Kedro</li></ul></div>
+    <div class="tk card"><h3><span data-l="pt">Estatística &amp; ML</span><span data-l="en">Statistics &amp; ML</span></h3><ul class="tags"><li>statsmodels</li><li>SciPy</li><li>scikit-learn</li><li>XGBoost · SHAP</li><li>ruptures</li><li>Snorkel</li><li>Transformers</li><li>PyTorch</li></ul></div>
+    <div class="tk card"><h3><span data-l="pt">IA aplicada</span><span data-l="en">Applied AI</span></h3><ul class="tags"><li class="strong">LLM-as-judge</li><li><span data-l="pt">Engenharia de prompt</span><span data-l="en">Prompt engineering</span></li><li>MCP</li><li>Model Serving</li><li>Claude · OpenAI APIs</li></ul></div>
+    <div class="tk card"><h3><span data-l="pt">Visualização &amp; publicação</span><span data-l="en">Visualization &amp; publishing</span></h3><ul class="tags"><li class="strong">Power BI</li><li>Metabase</li><li>Plotly</li><li>matplotlib</li><li>Apps Script</li><li>Confluence · Slack</li></ul></div>
+    <div class="tk card"><h3><span data-l="pt">Apps (com IA)</span><span data-l="en">Apps (with AI)</span></h3><ul class="tags"><li>React</li><li>FastAPI</li><li>TypeScript</li><li>Supabase</li><li>Vercel · Render</li><li>MySQL</li></ul></div>
+  </div>
+</section>
+
+<!-- ================= 06 TRAJETÓRIA ================= -->
+<section class="section wrap" id="trajetoria" aria-labelledby="h-traj">
+  <header class="sec-head">
+    <span class="sec-num mono">06</span>
+    <h2 id="h-traj"><span data-l="pt">Trajetória</span><span data-l="en">Experience</span></h2>
+  </header>
+
+  <div class="career">
+    <ol class="timeline">
+      <li class="current">
+        <span class="when mono"><span data-l="pt">jan 2026 – atual</span><span data-l="en">Jan 2026 – now</span></span>
+        <div><h3>Stone</h3><p class="role-line"><span data-l="pt">Analista de Dados Pleno · Chatbot Analytics</span><span data-l="en">Data Analyst · Chatbot Analytics</span></p>
+        <p data-l="pt">Priorização de retenção e CSAT, voz do cliente com LLM, teste A/B do copiloto, alertas estatísticos e relatórios executivos.</p>
+        <p data-l="en">Retention and CSAT prioritization, voice of customer with LLMs, the copilot A/B test, statistical alerting and executive reports.</p></div>
+      </li>
+      <li>
+        <span class="when mono"><span data-l="pt">jul – dez 2025</span><span data-l="en">Jul – Dec 2025</span></span>
+        <div><h3>ATY Consulting</h3><p class="role-line"><span data-l="pt">Consultor independente de Analytics</span><span data-l="en">Independent Analytics Consultant</span></p>
+        <p data-l="pt">Tabelas de negócio e indicadores de churn com SQL e PySpark no Databricks para um cliente de telecom, com painel em Power BI para retenção.</p>
+        <p data-l="en">Business tables and churn indicators with SQL and PySpark on Databricks for a telecom client, with a Power BI retention dashboard.</p></div>
+      </li>
+      <li>
+        <span class="when mono"><span data-l="pt">ago 2024 – abr 2025</span><span data-l="en">Aug 2024 – Apr 2025</span></span>
+        <div><h3>Advisia Analytics</h3><p class="role-line"><span data-l="pt">Cientista de Dados</span><span data-l="en">Data Scientist</span></p>
+        <p data-l="pt">Estudo competitivo com 6,5 milhões de registros no setor de combustíveis, 16 curvas de maturação de postos, algoritmo de otimização de preços em Kedro e web crawler.</p>
+        <p data-l="en">Competitive study on 6.5 million records in the fuel sector, 16 station maturity curves, a price optimization algorithm in Kedro and a web crawler.</p></div>
+      </li>
+      <li>
+        <span class="when mono"><span data-l="pt">fev – ago 2024</span><span data-l="en">Feb – Aug 2024</span></span>
+        <div><h3>Localiza</h3><p class="role-line"><span data-l="pt">Analista de Inteligência de Expansão Pleno</span><span data-l="en">Expansion Intelligence Analyst</span></p>
+        <p data-l="pt">CAPEX de abertura de unidades frente ao plano de negócios; esquema snowflake integrando SAP, GCP e planilhas no Power BI, com consolidação de metas cerca de 60% mais ágil.</p>
+        <p data-l="en">Unit-opening CAPEX against the business plan; a snowflake schema integrating SAP, GCP and spreadsheets in Power BI, making target consolidation about 60% faster.</p></div>
+      </li>
+      <li>
+        <span class="when mono"><span data-l="pt">out 2022 – dez 2023</span><span data-l="en">Oct 2022 – Dec 2023</span></span>
+        <div><h3>Isaac</h3><p class="role-line"><span data-l="pt">Analista de Operações Jr · Estagiário de Dados</span><span data-l="en">Operations Analyst · Data Intern</span></p>
+        <p data-l="pt">Produto Seguro Familiar (~200 mil responsáveis financeiros): KPIs de cobertura, atendimento e satisfação, três painéis no Metabase e automação de cerca de 1.200 comunicações, incluindo pesquisas de satisfação.</p>
+        <p data-l="en">Family Insurance product (~200k guardians): coverage, service and satisfaction KPIs, three Metabase dashboards and automation of about 1,200 communications, including satisfaction surveys.</p></div>
+      </li>
+      <li>
+        <span class="when mono"><span data-l="pt">set 2020 – jul 2022</span><span data-l="en">Sep 2020 – Jul 2022</span></span>
+        <div><h3>Hotmart</h3><p class="role-line"><span data-l="pt">Estagiário de Growth de Produto</span><span data-l="en">Product Growth Intern</span></p>
+        <p data-l="pt">MAU, LTV e CAC em iniciativas de growth; padrões de fraude em pagamentos que evitaram perda estimada de 4% do orçamento anual; rotinas 70% mais rápidas com automação.</p>
+        <p data-l="en">MAU, LTV and CAC in growth initiatives; payment fraud patterns that avoided an estimated 4% annual budget loss; routines 70% faster through automation.</p></div>
+      </li>
+    </ol>
+
+    <aside class="edu">
+      <div class="card edu-card">
+        <h3><span data-l="pt">Formação</span><span data-l="en">Education</span></h3>
+        <div class="edu-item">
+          <p class="edu-school">USP/ESALQ</p>
+          <p><span data-l="pt">MBA em Data Science &amp; Analytics · 2024–2025</span><span data-l="en">MBA in Data Science &amp; Analytics · 2024–2025</span></p>
+        </div>
+        <div class="edu-item">
+          <p class="edu-school">UFMG</p>
+          <p><span data-l="pt">Bacharelado em Controladoria e Finanças · 2019–2023</span><span data-l="en">BSc in Controllership and Finance · 2019–2023</span></p>
+          <p class="muted"><span data-l="pt">TCC: tokenização de plantações de eucalipto para antecipação de receita.</span><span data-l="en">Thesis: tokenizing eucalyptus plantations to bring revenue forward.</span></p>
+        </div>
+        <h3 class="mt"><span data-l="pt">Idiomas</span><span data-l="en">Languages</span></h3>
+        <p><span data-l="pt">Português nativo · Inglês avançado (Cambridge C1 Advanced)</span><span data-l="en">Portuguese (native) · English (Cambridge C1 Advanced)</span></p>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<!-- ================= CONTATO ================= -->
+<section class="section wrap" id="contato" aria-labelledby="h-contato">
+  <div class="contact card">
+    <div>
+      <h2 id="h-contato"><span data-l="pt">Vamos conversar?</span><span data-l="en">Let's talk</span></h2>
+      <p data-l="pt">Aberto a conversas sobre analytics de produto, voz do cliente, experimentação e IA aplicada a dados.</p>
+      <p data-l="en">Open to conversations about product analytics, voice of customer, experimentation and AI applied to data.</p>
+    </div>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="mailto:dinizcristiano04@gmail.com">dinizcristiano04@gmail.com</a>
+      <a class="btn" href="https://www.linkedin.com/in/cristianoaadiniz" target="_blank" rel="noopener">LinkedIn ↗</a>
+      <a class="btn" href="https://github.com/cristianoaad" target="_blank" rel="noopener">GitHub ↗</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer wrap">
+  <p><span data-l="pt">Site em HTML, CSS e JavaScript puros, co-construído com IA e hospedado no GitHub Pages.</span><span data-l="en">Plain HTML, CSS and JavaScript, co-built with AI and hosted on GitHub Pages.</span></p>
+  <p class="mono">© 2026 Cristiano Diniz</p>
+</footer>
+
+<script src="assets/js/main.js" defer></script>
+</body>
+</html>
